@@ -11,13 +11,13 @@ for url in urls:
             hex_object1 = hash_object1.hexdigest()
             timestamp = datetime.datetime.now(datetime.timezone.utc).astimezone()
             if url in record:
-                if record[url][0] == hex_object1:
+                if record[url][-1][0] == hex_object1:
                     print("no change")
                 else:
                     print("change detected")
                 record[url][-1][1].append(timestamp.strftime("%Y-%m-%d %H:%M:%S.%f %Z %z"))
             else:
-                record[url] = [[[hex_object1],[timestamp.strftime("%Y-%m-%d %H:%M:%S.%f %Z %z")]]]
+                record[url] = [[hex_object1,[timestamp.strftime("%Y-%m-%d %H:%M:%S.%f %Z %z")]]]
     except Exception as e:
         print(f"An error occurred: {e}")
 
