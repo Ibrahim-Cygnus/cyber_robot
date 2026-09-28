@@ -45,3 +45,4 @@ try:
         time.sleep(10)
 except KeyboardInterrupt:
     print("Execution Terminated")
+print("A new line to use Git Kraken")
